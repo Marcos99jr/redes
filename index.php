@@ -4,7 +4,7 @@
 		<meta charset="utf-8"/>
 	</head>
 	<body>
-		<form action="redes.php" method="post">
+		<form action="rede.php" method="post">
 			<label for="texto"/> Texto Claro
 			<input type="text" name="txtc"/><br>
 			<label for="senha"/> Senha
