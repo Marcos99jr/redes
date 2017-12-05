@@ -800,7 +800,7 @@
 				}
 				
 			}
-			$textDecif .= $indice;
+			$textDecif .= $charAdd;
 			
 		}
 		
