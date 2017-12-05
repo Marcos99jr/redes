@@ -5,7 +5,7 @@ require "./funcoes.php";
 		$senha = $_POST['senha'];
 		
 		$textCif = vigenere($textc,$senha);
-		echo $textCif;
+		echo "<br>".$textCif;
 	}
 ?>
 <!doctype html>
@@ -21,5 +21,6 @@ require "./funcoes.php";
 			<input type="text" name="senha"/><br>
 			<input type="submit" value="Criptografar"/>
 		</form>
+		<a href="decifrar.php"> Decriptografar</a>
 	</body>
 </html>
