@@ -1,11 +1,13 @@
 <?php
-require "./funcoes.php";
+require "./criptografar.php";
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$textc = $_POST['txtc'];
 		$senha = $_POST['senha'];
 		
 		$textCif = vigenere($textc,$senha);
-		echo "<br>".$textCif;
+		//$textCif = cesar($textCif,$senha);
+		$textCif = rotacao($textCif);
+
 	}
 ?>
 <!doctype html>
@@ -21,6 +23,11 @@ require "./funcoes.php";
 			<input type="text" name="senha"/><br>
 			<input type="submit" value="Criptografar"/>
 		</form>
-		<a href="decifrar.php"> Decriptografar</a>
+		<a href="decifrar.php"> Descriptografar</a>
+		<?php
+			if($_SERVER['REQUEST_METHOD']=='POST'){
+				echo "<br><br> Texto Cifrado: ".$textCif;
+			}
+		?>
 	</body>
 </html>

@@ -5,8 +5,10 @@ require "./decriptografar.php";
 		$textcif = $_POST['txtcif'];
 		$senha = $_POST['senha'];
 		
-		$textDecif = De_vigenere($textcif,$senha);
-		echo "<br> Texto Claro: ".$textDecif;
+		$textDecif = rotacao($textcif);
+		//$textDecif = de_cesar($textDecif,$senha);
+		$textDecif = De_vigenere($textDecif,$senha);
+		
 	}
 ?>
 <!doctype html>
@@ -16,12 +18,17 @@ require "./decriptografar.php";
 	</head>
 	<body>
 		<form action="decifrar.php" method="post">
-			<label for="texto"/> Texto Claro
+			<label for="texto"/> Texto Cifrado
 			<input type="text" name="txtcif"/><br>
 			<label for="senha"/> Senha
 			<input type="text" name="senha"/><br>
-			<input type="submit" value="Decriptografar"/>
+			<input type="submit" value="Descriptografar"/>
 		</form>
 		<a href="cifrar.php"> Criptografar</a>
+		<?php
+			if($_SERVER['REQUEST_METHOD']=='POST'){
+				echo "<br><br> Texto Claro: ".$textDecif;
+			}
+		?>
 	</body>
 </html>
