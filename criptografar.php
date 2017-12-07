@@ -47,7 +47,7 @@ function cesar($textc,$senha){
   
 	$arraySenha=array_unique($arraySenha);
 		   
-   echo "<br> Senha: ".$senha;
+   //echo "<br> Senha: ".$senha;
    $newAlfabeto = array_merge($arraySenha,$alfabeto);
    $newAlfabeto =array_unique($newAlfabeto);
    $i=0;
@@ -56,8 +56,8 @@ function cesar($textc,$senha){
 	   $i++;
    }
    
-     echo "<pre>";
-   print_r($newAlfabeto1);
+     /*echo "<pre>";
+   print_r($newAlfabeto1);*/
    
    
    //criptografar
@@ -71,7 +71,23 @@ function cesar($textc,$senha){
 		   
 	   }
    }
-    return $textCif;
+    //Transforma em hexa
+	$arrayText = str_split($textCif,8);
+	echo "<pre>";
+	print_r($arrayText);
+	
+	$textFinal = '';
+	foreach($arrayText as $indice => $string){
+		for($i=0;$i<strlen($string)-1;$i++){
+			$charH = ord($string[$i]);
+			echo "<br> ".$charH;
+			$charH = dechex($charH);
+			$textFinal.= $charH;
+		}
+		$textFinal.= ' ';
+	}
+  
+    return $textFinal;
  }
 
 //cifra de vigenere
@@ -852,7 +868,7 @@ $tabela = array(
 	}
 	
 	
-	echo "<br>".$strTxt;
+	//echo "<br>".$strTxt;
 	$bloco = strlen($senha);
 	$arrayTxt = str_split($strTxt,$bloco);
 	$rest = strlen($strTxt)%$bloco;
@@ -862,8 +878,8 @@ $tabela = array(
 		}
 	}
 	$textCif='';
-	echo "<pre>";
-	print_r($arrayTxt);
+	/*echo "<pre>";
+	print_r($arrayTxt);*/
 	
 	foreach($arrayTxt as $i => $value){
 		
@@ -885,7 +901,7 @@ $tabela = array(
 }
 
 //cifra de rotação
-function rotacao($text){//ratação e desrotação
+function rotacao($text){
 	$text=str_split($text);
 	$tmn=count($text);
 	for($i=$tmn-1;$i>=0;$i--){

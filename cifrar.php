@@ -5,11 +5,12 @@ require "./criptografar.php";
 		$senha = $_POST['senha'];
 		
 		$textCif = vigenere($textc,$senha);
-		echo "<br/> Saiu Vigenere: ".$textCif;
-		$textCif2 = cesar($textCif,$senha);
-		echo "<br />Saiu  Cesar: ".$textCif2;
-		$textCif3 = rotacao($textCif2);
-		echo "<br /> Saiu rotacao: ".$textCif3;
+		//echo "<br/> Saiu Vigenere: ".$textCif;
+		$textCif2 = rotacao($textCif);
+		//echo "<br /> Saiu rotacao: ".$textCif3;
+		$textCif3 = cesar($textCif2,$senha);
+		//echo "<br />Saiu  Cesar: ".$textCif2;
+		
 
 	}
 ?>

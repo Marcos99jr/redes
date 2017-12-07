@@ -5,12 +5,12 @@ require "./decriptografar.php";
 		$textcif = $_POST['txtcif'];
 		$senha = $_POST['senha'];
 		
-		$textDecif1 = rotacao($textcif);
-		echo "</br>."."		Rotação: ".$textDecif1;
-		$textDecif2 = de_cesar($textDecif1,$senha);
-		echo "</br>.Cesar: ".$textDecif2;
+		$textDecif1 = de_cesar($textcif,$senha);
+		//echo "</br>.Cesar: ".$textDecif2;
+		$textDecif2 = rotacao($textDecif1);
+		//echo "</br>."."		Rotação: ".$textDecif1;
 		$textDecif3 = De_vigenere($textDecif2,$senha);
-		echo "</br>."."Vigenere: ".$textDecif3;
+		//echo "</br>."."Vigenere: ".$textDecif3;
 		
 	}
 ?>

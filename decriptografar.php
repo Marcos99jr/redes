@@ -1,7 +1,7 @@
 	<?php
 //Descriptografar
 
-//Vigenre
+//Vigenere
 	function De_vigenere($textcif,$senha){
 		$tabela = array(
 		'a'=> array(
@@ -770,21 +770,21 @@
 	$strTxt = '';
 	
 	for($i=0;$i<$tamTxt;$i++){
-		if($textcif[$i]== ' '){
+		/*if($textcif[$i]== ' '){
 			unset($textcif[$i]);
 		}
-		else{
+		else{*/
 			$strTxt.= $textcif[$i];
-		}
+		//}
 	}
 	
 	
-	echo "<br>".$strTxt;
+	//echo "<br>".$strTxt;
 	$bloco = strlen($senha);
 	$arrayTxt = str_split($strTxt,$bloco);
 	
 	$textDecif='';
-	echo "<br> Senha: ".$senha;
+	//echo "<br> Senha: ".$senha;
 
 	foreach($arrayTxt as $i => $value){
 		
@@ -841,10 +841,23 @@ function rotacao($text){
 
 }
 
-//descripitografar
+//descriptografar
 function de_cesar($textc,$senha){
-	echo $textc;
-   $alfabeto = array(	0 => 'a',
+	//Transforma em char
+	$arrayText = str_split($textc,8);
+	$textc = '';
+	foreach($arrayText as $indice => $string){
+		for($i=0;$i<strlen($string)-1;$i++){
+			echo "<br> Char decimal: ". $string[$i].$string[$i+1];
+			$charH = hexdec($string[$i].$string[$i+1]);
+			
+			$charH = chr($charH);
+			$textc.= $charH;
+		}
+	}
+	echo "<br> Sai da transformacao: ".$textc;
+	
+	$alfabeto = array(	0 => 'a',
 						1 => 'b',
 						2 => 'c',
 						3 => 'd',
@@ -888,7 +901,7 @@ function de_cesar($textc,$senha){
   
 	$arraySenha=array_unique($arraySenha);
 		   
-   echo "<br> Senha: ".$senha;
+   //echo "<br> Senha: ".$senha;
    $newAlfabeto = array_merge($arraySenha,$alfabeto);
    $newAlfabeto =array_unique($newAlfabeto);
    $i=0;
@@ -897,8 +910,8 @@ function de_cesar($textc,$senha){
 	   $i++;
    }
    
-     echo "<pre>";
-   print_r($newAlfabeto1);
+     /*echo "<pre>";
+   print_r($newAlfabeto1);*/
    
    
    //criptografar
