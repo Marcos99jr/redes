@@ -1,4 +1,4 @@
-<?php
+	<?php
 //Descriptografar
 
 //Vigenre
@@ -836,7 +836,9 @@ function rotacao($text){
 	}		
 	
 	$text1=$str = implode("", $text1);
+		
 	return $text1;
+
 }
 
 //descripitografar
@@ -867,7 +869,9 @@ function de_cesar($textc,$senha){
 						22 => 'w',
 						23 => 'x',
 						24 => 'y',
-						25 => 'z');
+						25 => 'z',
+						26 => '&',
+						27 => ' ');
 	$textc = trim($textc);
 	//$textc = str_split($textc);
 	$tamTxt = count($textc);

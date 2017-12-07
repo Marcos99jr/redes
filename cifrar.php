@@ -5,8 +5,11 @@ require "./criptografar.php";
 		$senha = $_POST['senha'];
 		
 		$textCif = vigenere($textc,$senha);
-		$textCif = cesar($textc,$senha);
-		$textCif = rotacao($textCif);
+		echo "<br/> Saiu Vigenere: ".$textCif;
+		$textCif2 = cesar($textCif,$senha);
+		echo "<br />Saiu  Cesar: ".$textCif2;
+		$textCif3 = rotacao($textCif2);
+		echo "<br /> Saiu rotacao: ".$textCif3;
 
 	}
 ?>
@@ -26,7 +29,7 @@ require "./criptografar.php";
 		<a href="decifrar.php"> Descriptografar</a>
 		<?php
 			if($_SERVER['REQUEST_METHOD']=='POST'){
-				echo "<br><br> Texto Cifrado: ".$textCif;
+				echo "<br><br> Texto Cifrado: ".$textCif3;
 			}
 		?>
 	</body>
