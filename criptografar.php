@@ -2,39 +2,8 @@
 //CRIPTOGRAFAR
 	
 //cifra de cesar
-function cesar($text,$senha){
-    $tmg_senha=strlen($senha);
-	
-
-	$letras = array(    'a' => 1,
-						'b' => 2,
-						'c' => 3,
-						'd' => 4,
-						'e' => 5,
-						'f' => 6,
-						'g' => 7,
-						'h' => 8,
-						'i' => 9,
-						'j' => 10,
-						'k' => 11,
-						'l' => 12,
-						'm' => 13,
-						'n' => 14,
-						'o' => 15,
-						'p' => 16,
-						'q' => 17,
-						'r' => 18,
-						's' => 19,
-						't' => 20,
-						'u' => 21,
-						'v' => 22,
-						'w' => 23,
-						'x' => 24,
-						'y' => 25,
-						'z' => 26,
-						' ' => 27);
-		
-		$letraT = array(1 => 'a',
+function cesar($textc,$senha){
+   $alfabeto = array(	1 => 'a',
 						2 => 'b',
 						3 => 'c',
 						4 => 'd',
@@ -59,39 +28,77 @@ function cesar($text,$senha){
 						23 => 'w',
 						24 => 'x',
 						25 => 'y',
-						26 => 'z',
-						27 => ' ');
-		foreach($letras as $indice => $values){
-			if($values + $tmg_senha >27){
-					$letras[$indice]= $tmg_senha - (27 -$values);
-				}else{
-					$letras[$indice]= $values +$tmg_senha;
-				}
-			
+						26 => 'z');
+	$textc = trim($textc);
+	//$textc = str_split($textc);
+	$tamTxt = count($textc);
+	
+	for($i=0;$i<$tamTxt;$i++){
+		if($textc[$i]== ' '){
+			unset($textc[$i]);
 		}
 		
-		$text_array=str_split($text);
-		$o=0;
-		foreach($text_array as $indice => $values){
-			foreach($letras as $indiceL => $number){
-				if($indiceL==$values){
-					
-					foreach($letraT as $number_c => $letra_r){
-						if($number_c==$number){
-							$text1[$o]=$letra_r;
-							$o++;
-						}
-						
-					}
-				}
-				
+	}
+	echo "<pre>";
+	print_r($textc);
+	
+	$arraySenha = str_split($senha);
+   //tirar letra repitido da senha
+   for($i=0;$i<=strlen($senha)-1;$i++){
+	   $qtde = substr_count($senha,$senha[$i]);
+	   $a = 1;
+	   if($qtde>1){
+		   /*for($j=$i+1;$j<=strlen($senha)-1;$j++){
+			 if($senha[$j] == $senha[$i]){
+					$senha[$j] = '';
+				} 
+			}*/
+			array_unique()
+		   
+	   }
+	  
+   }
+   
+   echo "<br> Senha: ".$senha;
+   $newAlfabeto = $senha."abcdefghijklmnopqrstuvwxyz";
+   
+   //completar novo alfabeto
+   for($i=0;$i<=strlen($newAlfabeto)-1;$i++){
+	   $qtde = substr_count($newAlfabeto,$newAlfabeto[$i]);
+	   $a = 1;
+	   if($qtde>1){
+		   for($j=$i+1;$j<=strlen($newAlfabeto)-1;$j++){
+			 if($newAlfabeto[$j] == $newAlfabeto[$i]){
+					$newAlfabeto[$j] = '';
+				} 
 			}
-			
-		}
-		$text1=$str = implode("", $text1);
-		
-	 return $text1;
-	}	
+		   
+	   }
+	  
+   }
+   $newAlfabeto = str_split($newAlfabeto);
+   foreach($newAlfabeto as $indice => $char){
+	  if($char =='#'){
+		  echo "<br> o";
+		  unset($newAlfabeto[$indice]);
+	  }
+   }
+   
+   echo "<br>";
+   print_r($newAlfabeto);
+   //criptografar
+   $textCif = '';
+   for($i=0;$i<=strlen($textc)-1;$i++){
+	   $char = $textc[$i];
+	   foreach($alfabeto as $indice => $letra){
+		   if($letra == $char){
+			   $textCif.= $newAlfabeto[$indice];
+		   }
+		   
+	   }
+   }
+    return $textCif;
+ }
 
 //cifra de vigenere
 function vigenere ($textc,$senha){
@@ -881,6 +888,8 @@ $tabela = array(
 		}
 	}
 	$textCif='';
+	echo "<pre>";
+	print_r($arrayTxt);
 	
 	foreach($arrayTxt as $i => $value){
 		
