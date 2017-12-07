@@ -6,7 +6,7 @@ require "./decriptografar.php";
 		$senha = $_POST['senha'];
 		
 		$textDecif = rotacao($textcif);
-		//$textDecif = de_cesar($textDecif,$senha);
+		$textDecif = de_cesar($textDecif,$senha);
 		$textDecif = De_vigenere($textDecif,$senha);
 		
 	}

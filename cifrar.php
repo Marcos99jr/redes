@@ -4,9 +4,9 @@ require "./criptografar.php";
 		$textc = $_POST['txtc'];
 		$senha = $_POST['senha'];
 		
-		//$textCif = vigenere($textc,$senha);
+		$textCif = vigenere($textc,$senha);
 		$textCif = cesar($textc,$senha);
-		//$textCif = rotacao($textCif);
+		$textCif = rotacao($textCif);
 
 	}
 ?>

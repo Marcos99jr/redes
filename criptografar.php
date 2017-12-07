@@ -1,4 +1,4 @@
-<?php 
+	<?php 
 //CRIPTOGRAFAR
 	
 //cifra de cesar
