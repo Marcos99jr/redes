@@ -3,32 +3,32 @@
 	
 //cifra de cesar
 function cesar($textc,$senha){
-   $alfabeto = array(	1 => 'a',
-						2 => 'b',
-						3 => 'c',
-						4 => 'd',
-						5 => 'e',
-						6 => 'f',
-						7 => 'g',
-						8 => 'h',
-						9 => 'i',
-						10 => 'j',
-						11 => 'k',
-						12 => 'l',
-						13 => 'm',
-						14 => 'n',
-						15 => 'o',
-						16 => 'p',
-						17 => 'q',
-						18 => 'r',
-						19 => 's',
-						20 => 't',
-						21 => 'u',
-						22 => 'v',
-						23 => 'w',
-						24 => 'x',
-						25 => 'y',
-						26 => 'z');
+   $alfabeto = array(	0 => 'a',
+						1 => 'b',
+						2 => 'c',
+						3 => 'd',
+						4 => 'e',
+						5 => 'f',
+						6 => 'g',
+						7 => 'h',
+						8 => 'i',
+						9 => 'j',
+						10 => 'k',
+						11 => 'l',
+						12 => 'm',
+						13 => 'n',
+						14 => 'o',
+						15 => 'p',
+						16 => 'q',
+						17 => 'r',
+						18 => 's',
+						19 => 't',
+						20 => 'u',
+						21 => 'v',
+						22 => 'w',
+						23 => 'x',
+						24 => 'y',
+						25 => 'z');
 	$textc = trim($textc);
 	//$textc = str_split($textc);
 	$tamTxt = count($textc);
@@ -39,60 +39,32 @@ function cesar($textc,$senha){
 		}
 		
 	}
-	echo "<pre>";
-	print_r($textc);
 	
 	$arraySenha = str_split($senha);
    //tirar letra repitido da senha
-   for($i=0;$i<=strlen($senha)-1;$i++){
-	   $qtde = substr_count($senha,$senha[$i]);
-	   $a = 1;
-	   if($qtde>1){
-		   /*for($j=$i+1;$j<=strlen($senha)-1;$j++){
-			 if($senha[$j] == $senha[$i]){
-					$senha[$j] = '';
-				} 
-			}*/
-			array_unique()
+  
+	$arraySenha=array_unique($arraySenha);
 		   
-	   }
-	  
-   }
-   
    echo "<br> Senha: ".$senha;
-   $newAlfabeto = $senha."abcdefghijklmnopqrstuvwxyz";
-   
-   //completar novo alfabeto
-   for($i=0;$i<=strlen($newAlfabeto)-1;$i++){
-	   $qtde = substr_count($newAlfabeto,$newAlfabeto[$i]);
-	   $a = 1;
-	   if($qtde>1){
-		   for($j=$i+1;$j<=strlen($newAlfabeto)-1;$j++){
-			 if($newAlfabeto[$j] == $newAlfabeto[$i]){
-					$newAlfabeto[$j] = '';
-				} 
-			}
-		   
-	   }
-	  
-   }
-   $newAlfabeto = str_split($newAlfabeto);
-   foreach($newAlfabeto as $indice => $char){
-	  if($char =='#'){
-		  echo "<br> o";
-		  unset($newAlfabeto[$indice]);
-	  }
+   $newAlfabeto = array_merge($arraySenha,$alfabeto);
+   $newAlfabeto =array_unique($newAlfabeto);
+   $i=0;
+   foreach($newAlfabeto as $indice => $values){
+	   $newAlfabeto1[$i]=$values;
+	   $i++;
    }
    
-   echo "<br>";
-   print_r($newAlfabeto);
+     echo "<pre>";
+   print_r($newAlfabeto1);
+   
+   
    //criptografar
    $textCif = '';
    for($i=0;$i<=strlen($textc)-1;$i++){
 	   $char = $textc[$i];
 	   foreach($alfabeto as $indice => $letra){
 		   if($letra == $char){
-			   $textCif.= $newAlfabeto[$indice];
+			   $textCif.= $newAlfabeto1[$indice];
 		   }
 		   
 	   }
