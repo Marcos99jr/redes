@@ -49,6 +49,9 @@ require "./criptografar.php";
 			body{
 				background: url(./crip.jpg) no-repeat ;
 			}
+			p{
+					color: #fff;
+			}
 		</style>
 	</head>
 	<body>
@@ -62,7 +65,9 @@ require "./criptografar.php";
 		<a href="decifrar.php"> Descriptografar</a>
 		<?php
 			if($_SERVER['REQUEST_METHOD']=='POST'){
-				echo "<br><br> Texto Cifrado: ".$textCif3;
+		?>
+				<p> <?php echo "<br><br> Texto Cifrado: ".$textCif3;?> </p>
+		<?php
 			}
 		?>
 	</body>
