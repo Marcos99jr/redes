@@ -29,6 +29,7 @@ require "./decriptografar.php";
 <html>
 	<head>
 		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="./css/style.css"/>
 	</head>
 	<body>
 		<form action="decifrar.php" method="post">

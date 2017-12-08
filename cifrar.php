@@ -44,6 +44,12 @@ require "./criptografar.php";
 <html>
 	<head>
 		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="./css/style.css"/>
+		<style>
+			body{
+				background: url(./crip.jpg) no-repeat ;
+			}
+		</style>
 	</head>
 	<body>
 		<form action="cifrar.php" method="post">
