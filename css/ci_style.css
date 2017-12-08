@@ -1,0 +1,60 @@
+body{
+			background: url(./crip.jpg) no-repeat;
+			background-size: 100%;
+			background-size 	
+}
+p{
+color: #fff;
+}
+.center{
+	position: absolute;
+	left:40%;
+	top:25%;
+	width:300px;
+	height:200px;
+	background-color:#666666;
+	border:1px solid #66FF99;
+	opacity:0.9;
+		
+}
+p1{	
+	font-size:25px;
+	background:#66FF99;
+	width:300px;	
+	text-align:center;
+	position:absolute;	
+}
+.caixa{
+	width:295px;
+	margin-top:30px;
+	
+	
+}
+.senha{
+	margin-left:50px;
+	
+}
+.crip{
+	margin-left:100px;
+	margin-top:20px;
+}
+.des{
+	background-color:#FFF;
+	position:absolute;
+	top:200px;
+	left:1px;
+}
+a:link{
+text-style: none;
+}
+.result{
+	background-image:url(./papel.jfif);;
+	margin-top:100px;
+	text-align:center;
+	border-radius:20px;
+	padding:5px;
+	}
+span{
+	color:red;
+	
+}

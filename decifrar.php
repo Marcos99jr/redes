@@ -29,21 +29,23 @@ require "./decriptografar.php";
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<link rel="stylesheet" href="./css/style.css"/>
+		<link rel="stylesheet" href="./css/de_style.css"/>
 	</head>
 	<body>
-		<form action="decifrar.php" method="post">
-			<label for="texto"/> Texto Cifrado
-			<input type="text" name="txtcif"/><br>
-			<label for="senha"/> Senha
+		<div class="center">
+		<p1>Digite seu texto criptografado</p1>
+		<form action="decifrar.php" method="post" id="form">
+			<textarea class="caixa" rows="5" name="txtcif" form="form" forcols="200"></textarea>	
+			<label class="senha" for="senha"/> Senha
 			<input type="text" name="senha"/><br>
-			<input type="submit" value="Descriptografar"/>
+			<input class="crip"	 type="submit" value="Descriptografar"/>
 		</form>
-		<a href="cifrar.php"> Criptografar</a>
+		<a class="des" href="cifrar.php"> Criptografar</a>
 		<?php
 			if($_SERVER['REQUEST_METHOD']=='POST'){
-				echo "<br><br> Texto Claro: ".$textDecif3;
+				echo "<div class='result'><span> Texto Cifrado:<br><br> </span>".$textDecif3;
 			}
 		?>
+		</div>
 	</body>
 </html>

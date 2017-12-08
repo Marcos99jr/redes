@@ -44,31 +44,28 @@ require "./criptografar.php";
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<link rel="stylesheet" href="./css/style.css"/>
+		<link rel="stylesheet" href="./css/ci_style.css"/>
 		<style>
-			body{
-				background: url(./crip.jpg) no-repeat ;
-			}
-			p{
-					color: #fff;
-			}
+			
 		</style>
 	</head>
 	<body>
-		<form action="cifrar.php" method="post">
-			<label for="texto"/> Texto Claro
-			<input type="text" name="txtc"/><br>
-			<label for="senha"/> Senha
-			<input type="text" name="senha"/><br>
-			<input type="submit" value="Criptografar"/>
+		<div class="center">
+		<p1>Digite seu texto</p1>
+		<form action="cifrar.php" method="post" id="form">
+			<textarea class="caixa" rows="5" name="txtc" form="form" forcols="200"></textarea>	
+			<label class="senha" for="senha"/> Senha
+			<input type="text" maxlength="8" name="senha"/><br>
+			<input class="crip" type="submit" value="Criptografar"/>
 		</form>
-		<a href="decifrar.php"> Descriptografar</a>
+		<a class="des" href="decifrar.php"> Descriptografar</a>
 		<?php
 			if($_SERVER['REQUEST_METHOD']=='POST'){
 		?>
-				<p> <?php echo "<br><br> Texto Cifrado: ".$textCif3;?> </p>
+				<p> <?php echo "<div class='result'><span> Texto Cifrado:<br><br> </span>".$textCif3;?> </div></p>
 		<?php
 			}
 		?>
+		</div>
 	</body>
 </html>
