@@ -1,14 +1,25 @@
 <?php
 require "./decriptografar.php";
 	if($_SERVER['REQUEST_METHOD']=='POST'){
+		function hexToStr($hex){
+			$string='';
+			for ($i=0; $i < strlen($hex)-1; $i+=2){
+				$string .= chr(hexdec($hex[$i].$hex[$i+1]));
+			}
+			return $string;
+		}
+		
 	
 		$textcif = $_POST['txtcif'];
 		$senha = $_POST['senha'];
 		
-		$textDecif1 = de_cesar($textcif,$senha);
+	
+		$textcif = str_replace(" ","",$textcif);
+		$textc = hexToStr($textcif);
+		$textDecif1 = rotacao($textc);
+		//echo "</br>."." Rotação: ".$textDecif1;
+		$textDecif2 = de_cesar($textDecif1,$senha);
 		//echo "</br>.Cesar: ".$textDecif2;
-		$textDecif2 = rotacao($textDecif1);
-		//echo "</br>."."		Rotação: ".$textDecif1;
 		$textDecif3 = De_vigenere($textDecif2,$senha);
 		//echo "</br>."."Vigenere: ".$textDecif3;
 		

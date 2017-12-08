@@ -843,19 +843,16 @@ function rotacao($text){
 
 //descriptografar
 function de_cesar($textc,$senha){
-	//Transforma em char
-	$arrayText = str_split($textc,8);
-	$textc = '';
-	foreach($arrayText as $indice => $string){
-		for($i=0;$i<strlen($string)-1;$i++){
-			echo "<br> Char decimal: ". $string[$i].$string[$i+1];
-			$charH = hexdec($string[$i].$string[$i+1]);
-			
-			$charH = chr($charH);
-			$textc.= $charH;
+	$textc = trim($textc);
+	//$textc = str_split($textc);
+	$tamTxt = count($textc);
+	
+	for($i=0;$i<$tamTxt;$i++){
+		if($textc[$i]== " "){
+			unset($textc[$i]);
 		}
+		
 	}
-	echo "<br> Sai da transformacao: ".$textc;
 	
 	$alfabeto = array(	0 => 'a',
 						1 => 'b',

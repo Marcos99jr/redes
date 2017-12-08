@@ -71,23 +71,9 @@ function cesar($textc,$senha){
 		   
 	   }
    }
-    //Transforma em hexa
-	$arrayText = str_split($textCif,8);
-	echo "<pre>";
-	print_r($arrayText);
-	
-	$textFinal = '';
-	foreach($arrayText as $indice => $string){
-		for($i=0;$i<strlen($string)-1;$i++){
-			$charH = ord($string[$i]);
-			echo "<br> ".$charH;
-			$charH = dechex($charH);
-			$textFinal.= $charH;
-		}
-		$textFinal.= ' ';
-	}
+    
   
-    return $textFinal;
+    return $textCif;
  }
 
 //cifra de vigenere
